@@ -27,20 +27,15 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'  
+  
+    - name: Gradle Build Action
+      uses: gradle/gradle-build-action@v2.4.2
 
-#     - name: Gradle Build Action
-#       uses: gradle/gradle-build-action@v2.4.2
+    - name: Add Permisstion
+      run: chmod +x ./LastProjectBack/gradlew
 
-#     - name: Add Permisstion
-#       run: chmod +x ./LastProjectBack/gradlew
-
-#     - name: Execute Gradle build
-#       run: ./LastProjectBack/gradlew build -p ./LastProjectBack -x test
-    - name: Pemission
-        run: chmod +x ./gradlew
-        
-    - name: Build with Gradle
-        run: ./gradlew clean build
+    - name: Execute Gradle build
+      run: ./LastProjectBack/gradlew build -p ./LastProjectBack -x test
       
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
